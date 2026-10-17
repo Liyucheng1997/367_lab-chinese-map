@@ -2,6 +2,8 @@
 
 一个交互式网页地图：从远古传说到当代，按时期展示中国历代疆域变化，以及每个时期的重大历史事件。
 
+**在线访问：<https://liyucheng1997.github.io/367_lab-chinese-map/>**（例如直达唐朝：[#tang](https://liyucheng1997.github.io/367_lab-chinese-map/#tang)）
+
 ## 运行
 
 纯静态页面，无需构建。在本目录启动任意静态服务器即可：
