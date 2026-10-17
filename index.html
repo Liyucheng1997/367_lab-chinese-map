@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>中华上下五千年 · 疆域变迁</title>
+  <meta name="description" content="交互式地图：从远古传说到当代，展示中国历代疆域变化与重大历史事件。">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/leaflet/1.9.4/leaflet.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="seal">疆</span>
+        <div>
+          <h1>中华上下五千年</h1>
+          <p>历代疆域变迁与大事记</p>
+        </div>
+      </div>
+      <div class="toolbar">
+        <label class="switch"><input type="checkbox" id="optModern" checked><span>现代国界参照</span></label>
+        <label class="switch"><input type="checkbox" id="optEvents" checked><span>事件标注</span></label>
+        <label class="switch"><input type="checkbox" id="optFit" checked><span>自动缩放</span></label>
+        <select id="optBase" title="底图">
+          <option value="physical">底图：地形</option>
+          <option value="relief">底图：晕渲</option>
+          <option value="amap">底图：卫星（高德）</option>
+          <option value="none">底图：无</option>
+        </select>
+      </div>
+    </header>
+
+    <main class="stage">
+      <div id="map" aria-label="历史疆域地图"></div>
+
+      <aside class="panel" id="panel">
+        <button class="panel-toggle" id="panelToggle" aria-label="收起/展开面板">⟩</button>
+        <div class="panel-inner">
+          <section class="period-card">
+            <div class="period-head">
+              <h2 id="pName">—</h2>
+              <span class="period-sub" id="pSub"></span>
+            </div>
+            <div class="period-range" id="pRange"></div>
+            <dl class="facts">
+              <div><dt>地图时点</dt><dd id="pSnapshot">—</dd></div>
+              <div><dt>都城</dt><dd id="pCapital">—</dd></div>
+              <div><dt>疆域面积</dt><dd id="pArea">—</dd></div>
+            </dl>
+            <p class="summary" id="pSummary"></p>
+          </section>
+
+          <section class="block">
+            <h3>政权与区域</h3>
+            <ul class="legend" id="pLegend"></ul>
+          </section>
+
+          <section class="block">
+            <h3>大事记 <span class="count" id="pCount"></span></h3>
+            <div class="cat-filter" id="catFilter"></div>
+            <ol class="events" id="pEvents"></ol>
+          </section>
+
+          <p class="disclaimer">疆域为参考通行历史地图概略绘制的示意边界，不代表精确测绘，仅供科普参考。部分上古年代为约数。</p>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="timeline">
+      <div class="controls">
+        <button id="btnPrev" title="上一时期（←）">◀</button>
+        <button id="btnPlay" class="play" title="自动播放（空格）">▶</button>
+        <button id="btnNext" title="下一时期（→）">▶</button>
+      </div>
+      <div class="track-wrap">
+        <div class="ribbon" id="ribbon" title="按真实时间长度比例显示"></div>
+        <div class="chips" id="chips"></div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>window.L || document.write('<script src="https://cdn.bootcdn.net/ajax/libs/leaflet/1.9.4/leaflet.js"><\/script>')</script>
+  <script src="js/geo.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
